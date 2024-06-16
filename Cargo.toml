@@ -10,7 +10,7 @@ homepage = "https://github.com/ain1084/rust_fbd_sequencer"
 documentation = "https://docs.rs/fbd_sequencer"
 readme = "README.md"
 keywords = ["sequencer", "music", "PSG", "AY-3-8910", "audio"]
-categories = ["audio", "command-line-utilities", "no-std"]
+categories = ["multimedia:audio", "command-line-utilities", "no-std"]
 
 [dependencies]
 byteorder = "1.5.0"
