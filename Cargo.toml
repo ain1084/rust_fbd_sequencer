@@ -9,7 +9,7 @@ repository = "https://github.com/ain1084/rust_fbd_sequencer"
 homepage = "https://github.com/ain1084/rust_fbd_sequencer"
 documentation = "https://docs.rs/fbd_sequencer"
 readme = "README.md"
-keywords = ["sequencer", "music", "PSG", "AY-3-8910", "audio", "PCM"]
+keywords = ["sequencer", "music", "PSG", "AY-3-8910", "audio"]
 categories = ["audio", "command-line-utilities", "no-std"]
 
 [dependencies]
