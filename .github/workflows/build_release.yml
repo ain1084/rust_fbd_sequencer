@@ -27,14 +27,6 @@ jobs:
       - name: Zip specified directory
         run: zip -r fbd_files.zip fbd_files
 
-      - name: Download all artifacts
-        uses: actions/download-artifact@v4
-        with:
-          path: ./artifacts
-
-      - name: List downloaded artifacts
-        run: ls -l ./artifacts
-
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
