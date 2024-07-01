@@ -55,10 +55,4 @@ jobs:
 
       - name: Upload all artifacts to Release
         run: |
-          for artifact in ./artifacts/**/*.zip; do
-            if [[ -f "$artifact" ]]; then
-              echo "Uploading $artifact..."
-              gh release upload ${{ github.ref_name }} "$artifact" --clobber
-            fi
-          done
           gh release upload ${{ github.ref_name }} ./fbd_files.zip --clobber
