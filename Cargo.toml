@@ -1,6 +1,6 @@
 [package]
 name = "fbd_sequencer"
-version = "0.2.0"
+version = "0.2.1"
 edition = "2021"
 authors = ["Seiji Ainoguchi <seiji.ainoguchi@gmail.com>"]
 description = "A sequencer for playing music using PSG or AY-3-8910 sound sources. Supports playing .fbd sequence files."
