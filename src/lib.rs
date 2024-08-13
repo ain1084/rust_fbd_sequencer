@@ -348,18 +348,18 @@ impl<'a> Part<'a> {
             return false;
         }
         self.length -= 1;
+        self.update_tone_period(psg);
+        self.update_volume(psg);
         if self.length != 0 {
-            self.update_tone_period(psg);
-            self.update_volume(psg);
             return true;
+        }
+        if !self.is_tie {
+            self.envelope.release();
         }
         loop {
             let data = self.next_byte();
             match data {
                 0..=0x7f => {
-                    if !self.is_tie {
-                        self.envelope.release();
-                    }
                     self.length = data + 1;
                     break true;
                 }
