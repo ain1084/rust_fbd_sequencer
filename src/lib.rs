@@ -52,7 +52,7 @@ impl Envelope {
     fn new() -> Self {
         Self {
             current: 0,
-            phase: EnvelopePhase::Attack,
+            phase: EnvelopePhase::Release,
             al: u8::MAX,
             ar: u8::MAX,
             dr: 0,
@@ -313,10 +313,8 @@ impl<'a> Part<'a> {
     }
 
     fn apply_volume(&self, psg: &mut dyn PsgTrait) {
-        psg.set_volume(
-            self.channel_number,
-            ((self.envelope.current as u16 * self.volume as u16) >> 8) as u8,
-        );
+        let volume = ((self.envelope.current as u16 * self.volume as u16) >> 8) as u8;
+        psg.set_volume(self.channel_number, volume);
     }
 
     fn update_tone_period(&mut self, psg: &mut dyn PsgTrait) {
@@ -326,16 +324,14 @@ impl<'a> Part<'a> {
     }
 
     fn apply_tone_period(&self, psg: &mut dyn PsgTrait) {
-        psg.set_tone_period(
-            self.channel_number,
-            cmp::min(
-                cmp::max(
-                    (self.tone_period as i16 + self.detune + self.pitch_lfo.effect) >> self.octave,
-                    1,
-                ),
-                4095,
-            ) as u16,
-        );
+        let period = cmp::min(
+            cmp::max(
+                (self.tone_period as i16 + self.detune + self.pitch_lfo.effect) >> self.octave,
+                1,
+            ),
+            4095,
+        ) as u16;
+        psg.set_tone_period(self.channel_number, period);
     }
 
     fn end(&mut self, psg: &mut dyn PsgTrait) {

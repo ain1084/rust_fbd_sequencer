@@ -9,6 +9,9 @@
 
 This crate implements a sequencer (.fbd) for playing music using PSG or AY-3-8910 sound sources. This library itself does not generate PSG waveforms. The generation of PSG waveforms is delegated to external implementations that implement the `PsgTrait`.
 
+The Web Application using the crate is [fbdplay_wasm](https://github.com/ain1084/fbdplay_wasm), and the CUI Application is [fbd_sequencer_cli](https://crates.io/crates/fbd_sequencer_cli).
+
+
 ## About .fbd Files
 
 Sequence files are binary files with the .fbd extension. They are designed for PSG sound sources and have three independent channels. The term "FBD" does not have any particular meaning.
